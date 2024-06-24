@@ -4,6 +4,7 @@ npx tsc --init // cria o arquivo tsconfig.json
 npx tsc // vai executar toda a parte build, e vai gravar no diretório index.js
 npm i dotenv express
 npm i -D @types/express
+npm i -D prisma
 
 mudar o arquivo do outDir no tsconfig.json para "./build
 
