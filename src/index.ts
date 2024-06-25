@@ -2,6 +2,10 @@ import { PrismaClient } from "@prisma/client"
 import dotenv from "dotenv"
 import express, { Express, Request, Response } from "express"
 
+import { SnackData } from "./interfaces/SnackData"
+import { CustomerData } from "./interfaces/CustomerData"
+import { PaymentData } from "./interfaces/PaymentData"
+
 dotenv.config() // vai ler todas as configurações do .env
 
 const app: Express = express() // inicializa a constante aap como Express = express ()
@@ -59,6 +63,16 @@ app.get("/snacks", async (req: Request, res: Response) => {
 //   res.send(order)
 // })
 
+interface CheckoutRequest extends Request {
+  body: {
+    cart: SnackData[]
+    customer: CustomerData
+    payment: PaymentData
+  }
+}
+app.post('/checkout', async (req: CheckoutRequest, res: Response) => {
+  const { cart, customer, payment } = req.body
+})
 
 // fala para o express escutar uma porta
 app.listen(port, () => {
