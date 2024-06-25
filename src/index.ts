@@ -45,6 +45,21 @@ app.get("/snacks", async (req: Request, res: Response) => {
   res.send(snacks)
 })
 
+// app.get("/orders/:id", async (req: Request, res: Response) => {
+//   const { id } = req.params
+
+//   const order = await prisma.order.findUnique({
+//     where: {
+//       id: +id,
+//     },
+//   })
+
+//   if (!order) return res.status(404).send({ error: "Order not found" })
+
+//   res.send(order)
+// })
+
+
 // fala para o express escutar uma porta
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
