@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient() // a classe que vai fazer a conexão com o banco de dados
 
 const snacks = [
   {
@@ -192,6 +192,7 @@ main()
   .catch((error) => {
     console.error(error)
     process.exit(1)
+    // exit(1) - uma saída problemática, uma saída com erro - 1 default para erro
   })
   .finally(async () => {
     await prisma.$disconnect()
