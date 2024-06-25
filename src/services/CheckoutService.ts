@@ -26,7 +26,18 @@ export default class CheckoutService {
         },
       },
     })
-    console.log(`snacks`, snacks)
+    // console.log(`snacks`, snacks)
+
+    // composição de coisas do banco de dados com o cart
+    const snacksInCart = snacks.map<SnackData>((snack) => ({
+      ...snack,
+      price: Number(snack.price),
+      quantity: cart.find((item) => item.id === snack.id)?.quantity!,
+      subTotal:
+        cart.find((item) => item.id === snack.id)?.quantity! *
+        Number(snack.price),
+    }))
+    console.log(`snacksInCart`, snacksInCart)
 
     // TODO: registrar os dados do cliente no BD
     // TODO: criar uma order orderitem
