@@ -5,6 +5,7 @@ import express, { Express, Request, Response } from "express"
 import { SnackData } from "./interfaces/SnackData"
 import { CustomerData } from "./interfaces/CustomerData"
 import { PaymentData } from "./interfaces/PaymentData"
+import CheckoutService from "./services/CheckoutService"
 
 dotenv.config() // vai ler todas as configurações do .env
 
@@ -72,6 +73,9 @@ interface CheckoutRequest extends Request {
 }
 app.post('/checkout', async (req: CheckoutRequest, res: Response) => {
   const { cart, customer, payment } = req.body
+
+  const checkoutService = new CheckoutService()
+  checkoutService.process(cart, customer, payment)
 })
 
 // fala para o express escutar uma porta
