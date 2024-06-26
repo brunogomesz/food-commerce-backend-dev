@@ -43,4 +43,14 @@ export default class CheckoutService {
     // TODO: criar uma order orderitem
     // TODO: processar o pagamento
   }
+
+  // private async createCustomer(customer: CustomerData): Promise<Customer> {
+  //   const customerCreated = await this.prisma.customer.upsert({
+  //     where: { email: customer.email },
+  //     update: customer,
+  //     create: customer,
+  //   })
+
+  //   return customerCreated
+  // }
 }
