@@ -48,7 +48,12 @@ export default class CheckoutService {
     // console.log(`orderCreated`, orderCreated)
 
     // TODO: processar o pagamento
-  }
+  //   const transaction = await new PaymentService().process(
+  //     orderCreated,
+  //     customerCreated,
+  //     payment
+  //   )
+  // }
 
   // private async createCustomer(customer: CustomerData): Promise<Customer> {
   //   const customerCreated = await this.prisma.customer.upsert({
