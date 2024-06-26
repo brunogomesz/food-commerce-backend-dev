@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import { Customer, Order, PrismaClient } from "@prisma/client"
 
 import { CustomerData } from "../interfaces/CustomerData"
 import { PaymentData } from "../interfaces/PaymentData"
@@ -40,7 +40,13 @@ export default class CheckoutService {
     console.log(`snacksInCart`, snacksInCart)
 
     // TODO: registrar os dados do cliente no BD
+    // const customerCreated = await this.createCustomer(customer)
+    // console.log(`customerCreated`, customerCreated)
+
     // TODO: criar uma order orderitem
+    // const orderCreated = await this.createOrder(snacksInCart, customerCreated)
+    // console.log(`orderCreated`, orderCreated)
+
     // TODO: processar o pagamento
   }
 
@@ -52,5 +58,35 @@ export default class CheckoutService {
   //   })
 
   //   return customerCreated
+  // }
+
+  // private async createOrder(
+  //   snacksInCart: SnackData[],
+  //   customer: Customer
+  // ): Promise<Order> {
+  //   const total = snacksInCart.reduce((acc, snack) => acc + snack.subTotal, 0)
+  //   const orderCreated = await this.prisma.order.create({
+  //     data: {
+  //       total,
+  //       customer: {
+  //         connect: { id: customer.id },
+  //       },
+  //       orderItems: {
+  //         createMany: {
+  //           data: snacksInCart.map((snack) => ({
+  //             snackId: snack.id,
+  //             quantity: snack.quantity,
+  //             subTotal: snack.subTotal,
+  //           })),
+  //         },
+  //       },
+  //     },
+  //     include: {
+  //       customer: true,
+  //       orderItems: { include: { snack: true } },
+  //     },
+  //   })
+
+  //   return orderCreated
   // }
 }
